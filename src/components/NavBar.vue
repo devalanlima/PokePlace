@@ -6,21 +6,23 @@
                     <IconMenu />
                 </button>
                 <teleport to="body" v-if="isMenuOpen">
-                    <ul class="absolute left-0 top-0 mt-20 bg-SecondaryBlue w-[188px] border-r-2 border-b-2 border-MainBlue flex flex-col gap-5 text-2xl p-5">
-                        <li>
-                            <button class="w-full text-start block font-semibold" title="Login">Login</button>
-                        </li>
-                        <hr class="border-b-[2px] border-0 rounded-full">
-                        <li>
-                            <RouterLink class="w-full text-start block" to="/">Home</RouterLink>
-                        </li>
-                        <li>
-                            <RouterLink class="w-full text-start block"  to="/market">Market</RouterLink>
-                        </li>
-                        <li>
-                            <RouterLink class="w-full text-start block"  to="/about">About</RouterLink>
-                        </li>
-                    </ul>
+                    <nav>
+                        <ul class="absolute left-0 top-0 mt-20 bg-SecondaryBlue w-[188px] border-r-2 border-b-2 border-MainBlue flex flex-col gap-5 text-2xl p-5">
+                            <li>
+                                <button class="w-full text-start block font-semibold" title="Login">Login</button>
+                            </li>
+                            <hr class="border-b-[2px] border-0 rounded-full">
+                            <li>
+                                <RouterLink class="w-full text-start block" to="/">Home</RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink class="w-full text-start block"  to="/market">Market</RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink class="w-full text-start block"  to="/about">About</RouterLink>
+                            </li>
+                        </ul>
+                    </nav>
                 </teleport>
             </li>
             <li class="grid place-items-center">
