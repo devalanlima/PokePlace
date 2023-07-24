@@ -1,3 +1,10 @@
 <template>
-  <h1>Home View</h1>
+  <main>
+    <PresentationSection/>
+  </main>
 </template>
+
+<script setup>
+import PresentationSection from '../components/PresentationSection.vue';
+
+</script>
