@@ -2,8 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    html{
-        @apply bg-slate-400;
-    }
+@layer base {
+  :root {
+    --color0: #FFFFFF;
+    --color1: #4169F5;
+    --color2: #10182A;
+    --color3: #3ED77B;
+    --color4: #68C9FF;
+    --color5: #FFDE47;
+    --color6: #A35BFF;
+    --color7: #FF6231;
+    --color8: #286CA8;
+    --color9: #FFB800;
+    --color10: #EBEFF3;
+    --color11: #FF5C62;
+    --color12: #8593A3;
+    --color13: #FB6DD3;
+  }
+
+  html {
+    @apply bg-slate-400;
+  }
 }

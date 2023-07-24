@@ -1,4 +1,3 @@
 <template>
-  <main>
-  </main>
+  <h1>Home View</h1>
 </template>
