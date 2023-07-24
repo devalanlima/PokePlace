@@ -26,10 +26,11 @@
             </nav>
         </li>
         <li>
-            <a href="#">https://devalanlima.github.io/portfolio</a>
+            <a href="https://devalanlima.github.io/portfolio" target="_blank">devalanlima.github.io/portfolio</a>
         </li>
         <li>
-            <p>@2023 Alan Lima. All right reserved</p>
+            <p class="text-center">©2023 Copyright - All rights reserverd - Nintedo - Developed by Alan
+            Lima</p>
         </li>
     </ul>
 </template>

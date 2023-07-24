@@ -1,17 +1,17 @@
 <template>
     <ul>
         <li>
-            <a href="https://www.linkedin.com/in/devalanlima/">
+            <a target="_blank" href="https://www.linkedin.com/in/devalanlima/">
                 <IconLinkedin />
             </a>
         </li>
         <li>
-            <a href="https://github.com/devalanlima">
+            <a target="_blank" href="https://github.com/devalanlima">
                 <IconGithub />
             </a>
         </li>
         <li>
-            <a href="https://wa.me/55021996058924">
+            <a target="_blank" href="https://wa.me/55021996058924">
                 <IconWhatsapp />
             </a>
         </li>
