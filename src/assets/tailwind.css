@@ -21,6 +21,6 @@
   }
 
   html {
-    @apply bg-slate-400;
+    @apply bg-SecondaryBlue text-MainWhite font-Inter;
   }
 }

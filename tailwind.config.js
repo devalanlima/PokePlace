@@ -18,6 +18,9 @@ module.exports = {
         FireRed: 'var(--color11)',
         MetalGray: 'var(--color12)',
         FairyPink: 'var(--color13)',
+      },
+      fontFamily:{
+        'Inter': ['Inter', 'sans-serif']
       }
     },
   },
