@@ -11,7 +11,7 @@ module.exports = {
         WaterBlue: 'var(--color4)',
         LightningYellow: 'var(--color5)',
         PsychicPurple: 'var(--color6)',
-        FightingBrow: 'var(--color7)',
+        FightingBronw: 'var(--color7)',
         DarknessBlue: 'var(--color8)',
         DragonYellow: 'var(--color9)',
         ColorlessWhite: 'var(--color10)',
