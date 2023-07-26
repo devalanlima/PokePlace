@@ -1,14 +1,16 @@
 <template>
-    <template v-for="pokeType in pokemonTypes" :key="pokeType">
-        <li class="cursor-pointer">
-            <input class="sr-only peer" type="checkbox" :value="pokeType.elementType" :id="pokeType.elementType"
-                v-model="checkedTypes">
-            <label :for="pokeType.elementType"
-                :class="['rounded-full cursor-pointer text-MainWhite bg-SecondaryBlue font-semibold px-4 py-3 grid place-items-center peer-checked:text-SecondaryBlue peer-checked:outline peer-checked:outline-2 peer-checked:outline-SecondaryBlue', `${pokeType.colorType}`]">
-                {{ pokeType.elementType }}
-            </label>
-        </li>
-    </template>
+    <ul class="flex flex-col gap-5 p-5 pt-0">
+        <template v-for="pokeType in pokemonTypes" :key="pokeType">
+            <li class="cursor-pointer">
+                <input class="sr-only peer" type="checkbox" :value="pokeType.elementType" :id="pokeType.elementType"
+                    v-model="checkedTypes">
+                <label :for="pokeType.elementType"
+                    :class="['rounded-full cursor-pointer text-MainWhite bg-SecondaryBlue font-semibold px-4 py-3 grid place-items-center peer-checked:text-SecondaryBlue peer-checked:outline peer-checked:outline-2 peer-checked:outline-SecondaryBlue', `${pokeType.colorType}`]">
+                    {{ pokeType.elementType }}
+                </label>
+            </li>
+        </template>
+    </ul>
 </template>
 
 <script setup>

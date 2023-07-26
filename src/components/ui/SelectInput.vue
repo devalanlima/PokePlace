@@ -4,13 +4,11 @@
             @click="openMenu">
             <div class="px-0">
                 {{ props.buttonName }}
-                <IconTriangle class="inline" />
+                <IconTriangle :class="['inline', {'rotate-180': isMenuOpen}]" />
             </div>
         </button>
         <nav v-if="isMenuOpen" class="bg-MainBlue rounded-3xl">
-            <ul class="flex flex-col gap-5 p-5">
-                <slot></slot>
-            </ul>
+            <slot></slot>
         </nav>
     </div>
 </template>
