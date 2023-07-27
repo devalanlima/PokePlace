@@ -7,7 +7,7 @@
                 <IconTriangle :class="['inline', {'rotate-180': isMenuOpen}]" />
             </div>
         </button>
-        <nav v-if="isMenuOpen" class="bg-MainBlue rounded-3xl">
+        <nav v-show="isMenuOpen" class="bg-MainBlue rounded-3xl absolute pt-5 mt-2 max-h-[66vh] overflow-y-auto">
             <slot></slot>
         </nav>
     </div>
