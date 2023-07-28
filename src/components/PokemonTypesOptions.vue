@@ -12,8 +12,8 @@
             <li class="cursor-pointer">
                 <input class="sr-only peer" type="checkbox" :value="pokeType.elementType" :id="pokeType.elementType"
                     v-model="checkedTypes">
-                <label :for="pokeType.elementType"
-                    :class="['rounded-full cursor-pointer text-SecondaryBlue bg-SecondaryBlue font-semibold px-4 py-3 grid place-items-center peer-checked:text-MainWhite peer-checked:bg-SecondaryBlue', `${pokeType.colorType}`]">
+                <label :for="pokeType.elementType" :key="checkedTypes"
+                    :class="['rounded-full cursor-pointer text-SecondaryBlue font-semibold px-4 py-3 grid place-items-center peer-checked:text-MainWhite peer-checked:bg-SecondaryBlue peer-checked:outline-0 outline outline-1 outline-MainWhite', pokeType.colorType]">
                     {{ pokeType.elementType }}
                 </label>
             </li>
@@ -64,8 +64,6 @@ const selectAll = ()=>{
 }
 watch(checkedTypes, () => {
     let tempTypes = ''
-    console.log(checkedTypes.value.length);
-    console.log(isAllChecked.value);
     if (checkedTypes.value.length === 11) {
         isAllChecked.value = true
         checkedTypes.value = allPokemonTypes.value
