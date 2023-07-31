@@ -1,9 +1,9 @@
 <template>
     <div class="w-full relative">
         <input class="outline outline-2 outline-MainBlue p-3 rounded-full w-full pl-14 bg-[#10182A80]" placeholder="Ex.: Pikachu"
-            type="text" name="" id="search-bar" v-model="searchFilters.name">
+            type="text" id="search-bar" v-model="searchFilters.name">
         <label class="absolute left-0 top-0" for="search-bar">
-            <IconSearch class=" -ml-[1px]" />
+            <IconSearch />
         </label>
     </div>
 </template>

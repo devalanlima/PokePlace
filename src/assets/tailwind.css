@@ -21,6 +21,6 @@
   }
 
   html {
-    @apply bg-SecondaryBlue text-MainWhite font-Inter;
+    @apply bg-SecondaryBlue text-MainWhite font-Inter leading-none;
   }
 }
