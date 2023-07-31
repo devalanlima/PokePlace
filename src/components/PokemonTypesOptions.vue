@@ -1,20 +1,21 @@
 <template>
-    <ul class="flex flex-col gap-5 p-5 pt-0">
-        <li class="cursor-pointer" @click="selectAll">
-            <input class="sr-only peer" type="checkbox" id="All"
-                :checked="isAllChecked" value="All" >
+    <ul class="p-5 pt-0 flex flex-col gap-5 max-h-[50vh] overflow-y-auto w-[170px]">
+        <li>
+            <input class="peer hidden" type="checkbox" :id="`pokemonTypesOptionComponentAll`"
+                v-model="isAllTypesCheckeds">
             <label
-                :class="['rounded-full cursor-pointer text-MainWhite bg-SecondaryBlue font-semibold px-4 py-3 grid place-items-center peer-checked:text-SecondaryBlue peer-checked:bg-MainWhite']">
-                All
-            </label>
+                class="peer-checked:bg-MainWhite p-3 block rounded-full cursor-pointer text-center text-MainWhite peer-checked:text-SecondaryBlue font-semibold bg-SecondaryBlue"
+                :for="`pokemonTypesOptionComponentAll`"> All</label>
         </li>
-        <template v-for="pokeType in pokemonTypes" :key="pokeType">
-            <li class="cursor-pointer">
-                <input class="sr-only peer" type="checkbox" :value="pokeType.elementType" :id="pokeType.elementType"
-                    v-model="checkedTypes">
-                <label :for="pokeType.elementType" :key="checkedTypes"
-                    :class="['rounded-full cursor-pointer text-SecondaryBlue font-semibold px-4 py-3 grid place-items-center peer-checked:text-MainWhite peer-checked:bg-SecondaryBlue peer-checked:outline-0 outline outline-1 outline-MainWhite', pokeType.colorType]">
-                    {{ pokeType.elementType }}
+        <template v-for="(pokemonType) in pokemonTypes" :key="`pokemonTypesOptionComponent${pokemonType.elementType}`">
+            <li class="w-full">
+                <input class="peer hidden" type="checkbox" :id="`pokemonTypesOptionComponent${pokemonType.elementType}`"
+                    :value="pokemonType.elementType" v-model="checkedTypes">
+
+                <label
+                    :class="`${pokemonType.colorType} p-3 rounded-full block text-center peer-checked:text-SecondaryBlue font-semibold bg-SecondaryBlue cursor-pointer`"
+                    :for="`pokemonTypesOptionComponent${pokemonType.elementType}`">
+                    {{ pokemonType.elementType }}
                 </label>
             </li>
         </template>
@@ -41,39 +42,50 @@ const allPokemonTypes = ref([
     "Water"
 ])
 const checkedTypes = ref(allPokemonTypes.value)
+const isAllTypesCheckeds = ref(true)
 
 const pokemonTypes = ref({
-    pokeType1: { elementType: 'Water', colorType: 'bg-WaterBlue' },
-    pokeType2: { elementType: 'Lightning', colorType: 'bg-LightningYellow' },
-    pokeType3: { elementType: 'Psychic', colorType: 'bg-PsychicPurple' },
-    pokeType4: { elementType: 'Fighting', colorType: 'bg-FightingBronw' },
-    pokeType5: { elementType: 'Darkness', colorType: 'bg-DarknessBlue' },
-    pokeType6: { elementType: 'Dragon', colorType: 'bg-DragonYellow' },
-    pokeType7: { elementType: 'Colorless', colorType: 'bg-ColorlessWhite' },
-    pokeType8: { elementType: 'Fire', colorType: 'bg-FireRed' },
-    pokeType9: { elementType: 'Grass', colorType: 'bg-GrassGreen' },
-    pokeType10: { elementType: 'Metal', colorType: 'bg-MetalGray' },
-    pokeType11: { elementType: 'Fairy', colorType: 'bg-FairyPink' },
+    pokeType1: { elementType: 'Water', colorType: 'peer-checked:bg-WaterBlue' },
+    pokeType2: { elementType: 'Lightning', colorType: 'peer-checked:bg-LightningYellow' },
+    pokeType3: { elementType: 'Psychic', colorType: 'peer-checked:bg-PsychicPurple' },
+    pokeType4: { elementType: 'Fighting', colorType: 'peer-checked:bg-FightingBronw' },
+    pokeType5: { elementType: 'Darkness', colorType: 'peer-checked:bg-DarknessBlue' },
+    pokeType6: { elementType: 'Dragon', colorType: 'peer-checked:bg-DragonYellow' },
+    pokeType7: { elementType: 'Colorless', colorType: 'peer-checked:bg-ColorlessWhite' },
+    pokeType8: { elementType: 'Fire', colorType: 'peer-checked:bg-FireRed' },
+    pokeType9: { elementType: 'Grass', colorType: 'peer-checked:bg-GrassGreen' },
+    pokeType10: { elementType: 'Metal', colorType: 'peer-checked:bg-MetalGray' },
+    pokeType11: { elementType: 'Fairy', colorType: 'peer-checked:bg-FairyPink' },
+})
+
+watch(isAllTypesCheckeds,()=>{
+    if (isAllTypesCheckeds.value) {
+        checkedTypes.value = allPokemonTypes.value
+    }else{
+        let firstSelectedType = ''
+        allPokemonTypes.value.forEach(element => {
+            if(!checkedTypes.value.includes(element)){
+                firstSelectedType = element
+            } 
+        })
+        checkedTypes.value = [firstSelectedType]
+    }
 })
 
 
-const isAllChecked = ref(true)
-const selectAll = ()=>{
-    isAllChecked.value = true
-    checkedTypes.value = allPokemonTypes.value
-}
 watch(checkedTypes, () => {
     let tempTypes = ''
     if (checkedTypes.value.length === 11) {
-        isAllChecked.value = true
-        checkedTypes.value = allPokemonTypes.value
-        tempTypes = "types:*"
+        isAllTypesCheckeds.value = true
     } else {
-        isAllChecked.value = false
-        checkedTypes.value.forEach(type => {
-            tempTypes = ` -types:${type} ` + tempTypes
+        allPokemonTypes.value.forEach(element =>{
+            if(!checkedTypes.value.includes(element)){
+                tempTypes = ` -types:${element} ` + tempTypes
+            } 
         })
+        isAllTypesCheckeds.value = false        
     }
     searchFilters.pokemonType = tempTypes
 })
-</script>
+
+</script> 
