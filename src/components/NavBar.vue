@@ -5,7 +5,7 @@
                 <button title="Open Menu" class="z-20" @click="openMenu">
                     <IconMenu />
                 </button>
-                <teleport to="body" v-if="isMenuOpen">
+                <teleport to="body" v-if="isMenuOpen" ref="target">
                     <nav>
                         <ul class="absolute left-0 top-0 mt-20 bg-SecondaryBlue w-[188px] border-r-2 border-b-2 border-MainBlue flex flex-col gap-5 text-2xl p-5">
                             <li>
@@ -50,4 +50,13 @@ const openMenu = ()=>{
     isMenuOpen.value = !isMenuOpen.value
 }
 
+
+import { onClickOutside } from '@vueuse/core'
+const target = ref(null)
+
+onClickOutside(target, () => {
+    if (isMenuOpen.value) {
+        isMenuOpen.value = false
+    }
+})
 </script>

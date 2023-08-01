@@ -1,5 +1,5 @@
 <template>
-    <div class="relative bg-MainBlue rounded-3xl overflow-hidden">
+    <div class="relative bg-MainBlue rounded-3xl overflow-hidden" ref="target">
         <button class="bg-MainBlue px-4 w-full py-3 rounded-full" @click="openMenu">
             <div class="text-start flex items-center gap-2">
                 {{ props.buttonName }}
@@ -26,4 +26,13 @@ const isMenuOpen = ref(false)
 const openMenu = () => {
     isMenuOpen.value = !isMenuOpen.value
 }
+
+import { onClickOutside } from '@vueuse/core'
+const target = ref(null)
+
+onClickOutside(target, () => {
+    if (isMenuOpen.value) {
+        isMenuOpen.value = false
+    }
+})
 </script>

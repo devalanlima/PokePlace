@@ -74,7 +74,6 @@ watch(searchFilters, () => {
 })
 
 watch(()=>searchFilters.supertype, () => {
-    console.log('trigger');
     searchFilters.subtype = "*";
     searchFilters.rarity = "*";
     searchFilters.pokemonType = "";
