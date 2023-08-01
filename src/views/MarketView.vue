@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen flex flex-col">
+    <div class="min-h-screen flex flex-col pb-10">
         <div class="flex flex-col p-5 gap-5 sticky top-0 w-full ">
             <SearchBar class="md:hidden" />
             <div class="relative">
@@ -39,7 +39,7 @@
                 </template>
             </Suspense>
         </div>
-        <button class="self-center border-2 p-5" @click="loadMore">Load More</button>
+        <MainButton class="self-center p-5" @click="loadMore" button-name="Load More"/>
     </div>
 </template>
 
@@ -60,6 +60,7 @@ function loadMore() {
 
 import { useSearchFilters } from '../stores/SearchFilter';
 import RaritiesFilter from '../components/RaritiesFilter.vue';
+import MainButton from '../components/ui/MainButton.vue';
 
 const searchFilters = useSearchFilters()
 
