@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen flex flex-col">
         <div class="flex flex-col p-5 gap-5 sticky top-0 w-full ">
-            <SearchBar />
+            <SearchBar class="md:hidden" />
             <div class="relative">
                 <div class="flex justify-between w-full absolute">
                     <SelectInput v-if="searchFilters.supertype === 'Pokémon'" class="self-start" button-name="Types">

@@ -6,6 +6,8 @@ import MainFooter from './components/MainFooter.vue';
 
 <template>
   <NavBar/>
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
   <MainFooter/>
 </template>
