@@ -36,6 +36,6 @@
 </template>
 
 <script setup>
-import LogoPokePlace from './icons/LogoPokePlace.vue';
-import SocialLinks from './common/SocialLinks.vue'
+import LogoPokePlace from '../icons/LogoPokePlace.vue';
+import SocialLinks from '../common/SocialLinks.vue'
 </script>

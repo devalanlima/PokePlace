@@ -62,9 +62,9 @@
 </template>
 
 <script setup>
-import LogoPokePlace from './icons/LogoPokePlace.vue';
-import IconMenu from './icons/IconMenu.vue';
-import IconWallet from './icons/IconWallet.vue';
+import LogoPokePlace from '../icons/LogoPokePlace.vue';
+import IconMenu from '../icons/IconMenu.vue';
+import IconWallet from '../icons/IconWallet.vue';
 
 import { ref } from 'vue'
 
@@ -76,8 +76,8 @@ const openMenu = () => {
 
 
 import { onClickOutside } from '@vueuse/core'
-import SearchBar from './common/SearchBar.vue';
-import MainButton from './ui/MainButton.vue';
+import SearchBar from '../common/SearchBar.vue';
+import MainButton from '../ui/MainButton.vue';
 const target = ref(null)
 
 onClickOutside(target, () => {
