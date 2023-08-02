@@ -8,7 +8,7 @@
                         <SelectInput v-if="searchFilters.supertype === 'Pokémon' && width < 768" class="my-2 self-start" button-name="Types">
                             <PokemonTypesOptions class="p-4" />
                         </SelectInput>
-                        <PokemonTypesOptions v-else  class="md:flex-row w-full max-w-max mr-5 h-fit py-2"/>
+                        <PokemonTypesOptions v-else  class="md:flex-row w-full max-w-max mr-5 h-fit py-2 pr-1"/>
                         <SelectInput class="self-start mx-auto mr-0 my-2" button-name="Filter & Sort By">
                             <nav>
                                 <ul>
