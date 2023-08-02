@@ -1,7 +1,9 @@
 <template>
     <template v-for="pokemon in dataApi.data" :key="pokemon.id">
-        <div v-if="pokemon.images.small !== 'https://images.pokemontcg.io/ecard2/67.png'"  >
-            <img :src="pokemon.images.small" alt="">
+        <div v-if="pokemon.images.small !== 'https://images.pokemontcg.io/ecard2/67.png'">
+            <CardEffect>
+                <img :src="pokemon.images.small" alt="">
+            </CardEffect>
         </div>
     </template>
 </template>
@@ -9,6 +11,7 @@
 <script setup>
 import axios from "axios";
 import { useSearchFilters } from "../stores/SearchFilter";
+import CardEffect from "./CardEffect.vue";
 
 const searchFilters = useSearchFilters()
 
@@ -30,7 +33,7 @@ const api = axios.create({
 })
 
 const props = defineProps({
-    currentPage:{Type: Number, default: 1}
+    currentPage: { Type: Number, default: 1 }
 })
 
 const getPokemons = async (page) => {

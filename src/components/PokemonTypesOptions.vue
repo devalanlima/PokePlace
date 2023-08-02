@@ -4,7 +4,7 @@
             <input class="peer hidden" type="checkbox" :id="`pokemonTypesOptionComponentAll`"
                 v-model="isAllTypesCheckeds">
             <label
-                class="peer-checked:bg-MainWhite py-2 px-4 block rounded-full cursor-pointer text-center text-MainWhite peer-checked:text-SecondaryBlue font-semibold bg-SecondaryBlue outline outline-1 outline-SecondaryBlue"
+                class="peer-checked:bg-MainWhite py-2 px-4 block rounded-full cursor-pointer text-center text-MainWhite peer-checked:text-SecondaryBlue font-semibold bg-SecondaryBlue outline outline-1 outline-MainWhite"
                 :for="`pokemonTypesOptionComponentAll`"> All</label>
         </li>
         <template v-for="(pokemonType) in pokemonTypes" :key="`pokemonTypesOptionComponent${pokemonType.elementType}`">
@@ -13,7 +13,7 @@
                     :value="pokemonType.elementType" v-model="checkedTypes">
 
                 <label
-                    :class="`${pokemonType.colorType} py-2 px-4 rounded-full block text-center peer-checked:text-SecondaryBlue font-semibold bg-SecondaryBlue cursor-pointer outline outline-1 outline-SecondaryBlue`"
+                    :class="`${pokemonType.colorType} py-2 px-4 rounded-full block text-center peer-checked:text-SecondaryBlue font-semibold bg-SecondaryBlue cursor-pointer outline outline-1 outline-MainWhite`"
                     :for="`pokemonTypesOptionComponent${pokemonType.elementType}`">
                     {{ pokemonType.elementType }}
                 </label>

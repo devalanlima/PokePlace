@@ -1,14 +1,14 @@
 <template>
     <div class="min-h-screen flex flex-col px-5 justify-between mx-auto">
         <div class="min-h-screen w-full flex max-w-[1440px] flex-col pb-10 justify-between mx-auto">
-            <div class="flex flex-col gap-5 sticky top-0 w-full mx-auto py-4 ">
+            <div class="flex flex-col gap-5 sticky top-0 w-full mx-auto py-4 z-10">
                 <SearchBar class="md:hidden" />
                 <div class="relative">
                     <div class="flex justify-between w-full absolute min-h-max">
                         <SelectInput v-if="searchFilters.supertype === 'Pokémon' && width < 768" class="my-2 self-start min-w-[150px]" button-name="Types">
                             <PokemonTypesOptions class="p-4" />
                         </SelectInput>
-                        <PokemonTypesOptions v-else  class="md:flex-row w-full max-w-max mr-5 h-fit py-2 pr-1"/>
+                        <PokemonTypesOptions v-else  class="md:flex-row w-full max-w-max mr-5 h-fit py-2 px-1"/>
                         <SelectInput class="self-start mx-auto mr-0 my-2" button-name="Filter & Sort By">
                             <nav>
                                 <ul>
