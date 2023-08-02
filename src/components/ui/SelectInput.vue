@@ -1,9 +1,11 @@
 <template>
-    <div class="relative bg-MainBlue rounded-3xl overflow-hidden" ref="target">
-        <button class="bg-MainBlue px-4 w-full py-3 rounded-full" @click="openMenu">
-            <div class="text-start flex items-center gap-2">
+    <div class="relative min-w-max bg-MainBlue rounded-3xl overflow-hidden font-semibold" ref="target">
+        <button class="bg-MainBlue w-full py-2 px-4 rounded-full" @click="openMenu">
+            <div class="text-start gap-2 flex items-center whitespace-nowrap">
                 {{ props.buttonName }}
-                <IconTriangle :class="['mx-auto mr-0', { 'rotate-180': isMenuOpen }]" />
+                <div :class="['min-w-max', { 'rotate-180': isMenuOpen }]">
+                    <IconTriangle />
+                </div>
             </div>
         </button>
         <nav v-show="isMenuOpen" class="bg-MainBlue w-full">
@@ -35,4 +37,5 @@ onClickOutside(target, () => {
         isMenuOpen.value = false
     }
 })
+
 </script>

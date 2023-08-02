@@ -44,8 +44,4 @@ const getPokemons = async (page) => {
 }
 
 const dataApi = await getPokemons(props.currentPage)
-/* https://api.pokemontcg.io/v2/cards?orderBy=name&pageSize=25&page=1&q=%0A++++++++name:%22*%22%0A++++++++subtypes:%22*%22%0A++++++++supertype:%22Pok%C3%A9mon%22%0A++++++++rarity:%22*%22%0A++++++++types:%22Water%22+types:%22Fire%22+%0A++++++++%0A++++++++ */
-
-/* https://api.pokemontcg.io/v2/cards?orderBy=name&page=1&pageSize=20&q=%0A++++++++name:%22*%22%0A++++++++subtypes:%22*%22%0A++++++++supertype:%22Pok%C3%A9mon%22%0A++++++++rarity:%22*%22%0A++++++++Grass,+Fire%0A++++++++ */
-
 </script>
