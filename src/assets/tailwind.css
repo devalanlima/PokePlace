@@ -23,4 +23,26 @@
   html {
     @apply bg-SecondaryBlue text-MainWhite font-Inter leading-none;
   }
+  ::-webkit-scrollbar {
+    @apply w-1 h-2 rounded-full;
+  }
+
+  /* Cor de fundo da barra de rolagem */
+  ::-webkit-scrollbar-track {
+    @apply bg-MainWhite outline outline-1 outline-SecondaryBlue;
+  }
+
+  /* Cor do thumb (a alça da barra de rolagem) */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-MainBlue;
+  }
+
+  /* Cor do thumb quando passar o mouse por cima */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-MainBlue bg-opacity-70;
+  }
+
+  ::selection {
+    @apply bg-MainWhite text-SecondaryBlue;
+  }
 }

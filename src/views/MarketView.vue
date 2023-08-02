@@ -5,7 +5,7 @@
                 <SearchBar class="md:hidden" />
                 <div class="relative">
                     <div class="flex justify-between w-full absolute min-h-max">
-                        <SelectInput v-if="searchFilters.supertype === 'Pokémon' && width < 768" class="my-2 self-start" button-name="Types">
+                        <SelectInput v-if="searchFilters.supertype === 'Pokémon' && width < 768" class="my-2 self-start min-w-[150px]" button-name="Types">
                             <PokemonTypesOptions class="p-4" />
                         </SelectInput>
                         <PokemonTypesOptions v-else  class="md:flex-row w-full max-w-max mr-5 h-fit py-2 pr-1"/>
