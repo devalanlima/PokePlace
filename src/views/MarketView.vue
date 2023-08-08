@@ -1,14 +1,15 @@
 <template>
     <div class="min-h-screen flex flex-col px-5 justify-between mx-auto">
         <div class="min-h-screen w-full flex max-w-[1440px] flex-col pb-10 justify-between mx-auto">
-            <div class="flex flex-col gap-5 sticky top-0 w-full mx-auto py-4 z-10">
+            <div class="flex flex-col gap-5 sticky top-0 w-full mx-auto py-4 z-50">
                 <SearchBar class="md:hidden" />
                 <div class="relative">
                     <div class="flex justify-between w-full absolute min-h-max">
-                        <SelectInput v-if="searchFilters.supertype === 'Pokémon' && width < 768" class="my-2 self-start min-w-[150px]" button-name="Types">
+                        <SelectInput v-if="searchFilters.supertype === 'Pokémon' && width < 768"
+                            class="my-2 self-start min-w-[150px]" button-name="Types">
                             <PokemonTypesOptions class="p-4" />
                         </SelectInput>
-                        <PokemonTypesOptions v-else  class="md:flex-row w-full max-w-max mr-5 h-fit py-2 px-1"/>
+                        <PokemonTypesOptions v-else class="md:flex-row w-full max-w-max mr-5 h-fit py-2 px-1" />
                         <SelectInput class="self-start mx-auto mr-0 my-2" button-name="Filter & Sort By">
                             <nav>
                                 <ul>
@@ -35,9 +36,22 @@
                     </template>
                     <template #fallback>
                         <template v-for="loadItem in 30" :key="loadItem">
-                            <div :id="loadItem"
-                                class="w-[245px] h-[342px] bg-slate-500 animate-pulse block rounded-xl -z-10">
+                            <div class="p-3 rounded-xl flex relative overflow-hidden bg-MainWhite"
+                                :id="loadItem">
+                                <div class="z-10 flex flex-col gap-3">
+                                    <div class="w-[245px] h-[342px] bg-slate-500 animate-pulse block rounded-xl -z-10">
+                                    </div>
+                                    <div class="w-full h-[1px] bg-SecondaryBlue block"></div>
+                                    <div class="flex justify-between text-SecondaryBlue font-semibold">
+                                        <p>0.000000 ETH</p>
+                                        <p>000 of 000</p>
+                                    </div>
+                                </div>
+                                <div class="absolute w-[240%] h-[240%] top-0 left-0 rotate-45 bg-MainWhite"></div>
                             </div>
+                            <!-- <div 
+                                class="w-[245px] h-[342px] bg-slate-500 animate-pulse block rounded-xl -z-10">
+                            </div> -->
                         </template>
                     </template>
                 </Suspense>
@@ -88,7 +102,7 @@ import { useWindowSize } from '@vueuse/core'
 
 const { width } = useWindowSize()
 
-watch(width, ()=>{
+watch(width, () => {
     console.log(width.value);
 })
 </script>
