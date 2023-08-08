@@ -1,11 +1,11 @@
 <template>
     <div class="flip-card h-fit w-fit cursor-pointer relative" @mousemove="mouseMoveFunction"
         @mouseenter="mouseEnterFunction" @mouseleave="mouseLeaveFunction">
-        <div class="pointer-events-none transition-transform duration-300 ease-out relative overflow-hidden"
+        <div class="pointer-events-none transition-transform duration-300 ease-out relative rounded-xl overflow-hidden"
             :style="flipCardInner">
             <div class="absolute w-[70%] h-[80%] bg-white rounded-full top-1/2 left-1/2 mix-blend-overlay blur-2xl opacity-40"
                 :style="shine"></div>
-            <img class="absolute object-cover h-full mix-blend-screen block" src="/grain.webp" alt="">
+            <img class="absolute object-cover h-full mix-blend-overlay opacity-30 scale-125" src="/grain.webp" alt="">
             <slot></slot>
         </div>
     </div>
