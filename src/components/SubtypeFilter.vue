@@ -10,11 +10,11 @@
                         for="AllSubtypes">All</label>
                 </li>
                 <li v-for="subtype in allSubtypes" :key="subtype">
-                    <input class="peer sr-only" name="selectsubtype" type="radio" :id="subtype" :value="subtype"
+                    <input class="peer sr-only" name="selectsubtype" type="radio" :id="`SubTypeFilter${subtype}`" :value="subtype"
                         v-model="searchFilters.subtype">
                     <label
                         class="hover:bg-blue-900 bg-opacity-25 w-full block px-5 py-3 peer-checked:bg-blue-950 cursor-pointer max-w-[148px]"
-                        :for="subtype">{{ subtype }}</label>
+                        :for="`SubTypeFilter${subtype}`">{{ subtype }}</label>
                 </li>
             </ul>
         </SelectInput>

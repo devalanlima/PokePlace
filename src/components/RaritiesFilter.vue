@@ -10,11 +10,11 @@
                         for="allRarities">All</label>
                 </li>
                 <li v-for="rarity in allRarities" :key="rarity">
-                    <input class="peer sr-only" name="selectrarity" type="radio" :id="rarity" :value="rarity"
+                    <input class="peer sr-only" name="selectrarity" type="radio" :id="`RaritiesFilter${rarity}`" :value="rarity"
                         v-model="searchFilters.rarity">
                     <label
                         class="hover:bg-blue-900 bg-opacity-25 w-full block px-5 py-3 peer-checked:bg-blue-950 cursor-pointer max-w-[148px]"
-                        :for="rarity">{{ rarity }}</label>
+                        :for="`RaritiesFilter${rarity}`">{{ rarity }}</label>
                 </li>
             </ul>
         </SelectInput>
