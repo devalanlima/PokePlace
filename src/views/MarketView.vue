@@ -2,15 +2,15 @@
     <div class="min-h-screen flex flex-col px-5 justify-between mx-auto">
         <div class="min-h-screen w-full flex max-w-[1440px] flex-col pb-10 justify-between mx-auto">
             <div class="flex flex-col gap-5 sticky top-0 w-full mx-auto py-4 z-50">
-                <SearchBar class="md:hidden" />
+                <SearchBar class="md:hidden mx-auto" />
                 <div class="relative">
-                    <div class="flex justify-between w-full absolute min-h-max">
-                        <SelectInput v-if="searchFilters.supertype === 'Pokémon' && width < 768"
-                            class="my-2 self-start min-w-[150px]" button-name="Types">
+                    <div class="flex justify-between w-full absolute align-middle">
+                        <SelectInput v-if="searchFilters.supertype === 'Pokémon' && width < 1460"
+                            class="my-2 min-w-[150px] mx-auto ml-0 lg:ml-auto lg:mr-0" button-name="Types">
                             <PokemonTypesOptions class="p-4" />
                         </SelectInput>
-                        <PokemonTypesOptions v-else class="md:flex-row w-full max-w-max mr-5 h-fit py-2 px-1" />
-                        <SelectInput class="self-start mx-auto mr-0 my-2" button-name="Filter & Sort By">
+                        <PokemonTypesOptions v-else-if="searchFilters.supertype === 'Pokémon'" class="md:flex-row w-full max-w-max mr-5 h-fit py-2 px-1" />
+                        <SelectInput class="self-start mx-auto mr-0 mt-1 p-1" button-name="Filter & Sort By">
                             <nav>
                                 <ul>
                                     <li>
@@ -49,9 +49,6 @@
                                 </div>
                                 <div class="absolute w-[240%] h-[240%] top-0 left-0 rotate-45 bg-MainWhite"></div>
                             </div>
-                            <!-- <div 
-                                class="w-[245px] h-[342px] bg-slate-500 animate-pulse block rounded-xl -z-10">
-                            </div> -->
                         </template>
                     </template>
                 </Suspense>
@@ -95,14 +92,11 @@ watch(searchFilters, () => {
 watch(() => searchFilters.supertype, () => {
     searchFilters.subtype = "*";
     searchFilters.rarity = "*";
-    searchFilters.pokemonType = "";
+    searchFilters.pokemonType = [];
 })
 
 import { useWindowSize } from '@vueuse/core'
 
 const { width } = useWindowSize()
 
-watch(width, () => {
-    console.log(width.value);
-})
 </script>
