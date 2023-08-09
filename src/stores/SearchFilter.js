@@ -7,7 +7,7 @@ export const useSearchFilters = defineStore("filters", () => {
   const subtype = ref("*");
   const supertype = ref("Pokémon");
   const rarity = ref("*");
-  const pokemonType = ref("");
+  const pokemonType = ref([]);
   const pageSize = ref(20);
 
   return { order, name, subtype, supertype, rarity, pokemonType, pageSize };
