@@ -36,7 +36,7 @@
             <li class="grid place-items-center lg:order-1">
                 <LogoPokePlace />
             </li>
-            <li class="hidden md:block lg:order-2 grow max-w-[400px] min-w-[200px]">
+            <li v-if="attSearchBar" class="hidden md:block lg:order-2 grow max-w-[400px] min-w-[200px]">
                 <SearchBar />
             </li>
             <li class="flex gap-3 lg:order-5">
@@ -55,7 +55,7 @@ import LogoPokePlace from '../icons/LogoPokePlace.vue';
 import IconMenu from '../icons/IconMenu.vue';
 import IconWallet from '../icons/IconWallet.vue';
 
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const isMenuOpen = ref(false)
 
@@ -76,4 +76,13 @@ onClickOutside(target, () => {
     }
 })
 
+import { RouterLink, useRoute } from 'vue-router';
+const route = useRoute()
+const attSearchBar = computed(()=>{
+    if(route.name === 'home'){
+        return false
+    } else{
+        return true
+    }
+})
 </script>
