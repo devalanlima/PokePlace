@@ -29,18 +29,7 @@
                 </div>
                 <div class="hidden lg:block">
                     <nav>
-                        <ul class="flex gap-9">                            
-                            <hr class="border-b-[2px] border-0 rounded-full">
-                            <li>
-                                <RouterLink class="w-full text-start block" to="/">Home</RouterLink>
-                            </li>
-                            <li>
-                                <RouterLink class="w-full text-start block" to="/market">Market</RouterLink>
-                            </li>
-                            <li>
-                                <RouterLink class="w-full text-start block" to="/about">About</RouterLink>
-                            </li>
-                        </ul>
+                        <RoutersLinks/>
                     </nav>
                 </div>
             </li>
@@ -78,6 +67,7 @@ const openMenu = () => {
 import { onClickOutside } from '@vueuse/core'
 import SearchBar from '../common/SearchBar.vue';
 import MainButton from '../ui/MainButton.vue';
+import RoutersLinks from './RoutersLinks.vue';
 const target = ref(null)
 
 onClickOutside(target, () => {
@@ -85,4 +75,5 @@ onClickOutside(target, () => {
         isMenuOpen.value = false
     }
 })
+
 </script>
