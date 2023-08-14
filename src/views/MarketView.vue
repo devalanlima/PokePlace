@@ -32,7 +32,7 @@
                 :key="storeUpdate">
                 <Suspense v-for="(item, index) in loadMoreItems" :key="item">
                     <template #default>
-                        <GetPokemons :current-page="index + 1" />
+                        <GetPokemons v-model:has-itens="hasItens" :current-page="index + 1" />
                     </template>
                     <template #fallback>
                         <template v-for="loadItem in 30" :key="loadItem">
@@ -53,7 +53,7 @@
                     </template>
                 </Suspense>
             </div>
-            <MainButton class="self-center p-5" @click="loadMore" button-name="Load More" />
+            <MainButton class="self-center p-5" @click="loadMore" button-name="Load More" :disabled="!hasItens" />
         </div>
     </div>
 </template>
@@ -99,4 +99,5 @@ import { useWindowSize } from '@vueuse/core'
 
 const { width } = useWindowSize()
 
+const hasItens = ref(true)
 </script>
