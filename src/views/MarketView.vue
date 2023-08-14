@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen flex flex-col px-5 justify-between mx-auto">
         <div class="min-h-screen w-full flex max-w-[1440px] flex-col pb-10 justify-between mx-auto">
-            <div class="flex flex-col gap-5 sticky top-0 w-full mx-auto py-4 z-50">
+            <div class="flex flex-col gap-5 sticky top-0 w-full mx-auto py-4 z-30">
                 <SearchBar class="md:hidden mx-auto" />
                 <div class="relative">
                     <div class="flex justify-between w-full absolute align-middle">
