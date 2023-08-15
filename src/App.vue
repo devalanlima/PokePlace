@@ -5,9 +5,13 @@ import MainFooter from './components/common/MainFooter.vue';
 </script>
 
 <template>
-  <NavBar class="z-50" />
+  <header>
+    <NavBar class="z-50" />
+  </header>
   <main>
     <RouterView />
   </main>
-  <MainFooter/>
+  <footer>
+    <MainFooter />
+  </footer>
 </template>
