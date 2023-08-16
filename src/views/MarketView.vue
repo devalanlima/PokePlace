@@ -9,7 +9,8 @@
                             class="my-2 h-fit min-w-[150px] p-1 mt-1" button-name="Types">
                             <PokemonTypesOptions class="p-4" />
                         </SelectInput>
-                        <PokemonTypesOptions v-else-if="searchFilters.supertype === 'Pokémon'" class="md:flex-row w-full max-w-max mr-5 h-fit py-2 px-1" />
+                        <PokemonTypesOptions v-else-if="searchFilters.supertype === 'Pokémon'"
+                            class="md:flex-row w-full max-w-max mr-5 h-fit py-2 px-1" />
                         <SelectInput class="self-start mt-1 p-1" button-name="Filter & Sort By">
                             <nav>
                                 <ul>
@@ -32,12 +33,11 @@
                 :key="storeUpdate">
                 <Suspense v-for="(item, index) in loadMoreItems" :key="item">
                     <template #default>
-                        <GetPokemons v-model:has-itens="hasItens" :current-page="index + 1" />
+                        <GetPokemons :current-page="index + 1" />
                     </template>
                     <template #fallback>
                         <template v-for="loadItem in 30" :key="loadItem">
-                            <div class="p-3 rounded-xl flex relative overflow-hidden bg-MainWhite"
-                                :id="loadItem">
+                            <div class="p-3 rounded-xl flex relative overflow-hidden bg-MainWhite" :id="loadItem">
                                 <div class="z-10 flex flex-col gap-3">
                                     <div class="w-[245px] h-[342px] bg-slate-500 animate-pulse block rounded-xl -z-10">
                                     </div>
@@ -53,7 +53,7 @@
                     </template>
                 </Suspense>
             </div>
-            <MainButton class="self-center p-5" @click="loadMore" button-name="Load More" :disabled="!hasItens" />
+            <MainButton class="self-center p-5" @click="loadMore" button-name="Load More" :disabled="!ConditionApi.hasItens" />
         </div>
     </div>
 </template>
@@ -99,5 +99,8 @@ import { useWindowSize } from '@vueuse/core'
 
 const { width } = useWindowSize()
 
-const hasItens = ref(true)
+import { useConditionApi } from "../stores/ConditionApi"
+const ConditionApi = useConditionApi()
+
+
 </script>

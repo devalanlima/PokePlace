@@ -2,7 +2,7 @@
     <template v-if="dataApi">
         <template v-for="pokemon in dataApi.data" :key="pokemon.id">
             <div class="p-3 rounded-xl flex relative overflow-hidden"
-                :class="pokemon.types && pokemon.types.length > 1 ? defineBackGround(pokemon.types)[1] : defineBackGround(pokemon.types)">
+                :class="pokemon.types && pokemon.types.length > 1 ? defineBackGround(pokemon.types)[1] : defineBackGround(pokemon.types)" :id="pokemon.id">
                 <div class="z-10 flex flex-col gap-3">
                     <div v-if="pokemon.images.small !== 'https://images.pokemontcg.io/ecard2/67.png'">
                         <CardEffect>
@@ -10,9 +10,25 @@
                         </CardEffect>
                     </div>
                     <div class="w-full h-[1px] bg-SecondaryBlue block"></div>
-                    <div class="flex justify-between text-SecondaryBlue font-semibold">
-                        <p>0.000054 ETH</p>
-                        <p>234 of 540</p>
+                    <div class="flex flex-col gap-3 justify-between text-SecondaryBlue font-semibold">
+                        <template
+                            v-if="Object.prototype.hasOwnProperty.call(pokemon, 'tcgplayer') && Object.prototype.hasOwnProperty.call(pokemon.tcgplayer, 'prices')">
+                            <template v-for="key in Object.keys(pokemon.tcgplayer.prices)">
+                                <button v-if="key"
+                                    class="flex justify-between text-SecondaryBlue text-sm bg-white bg-opacity-50 p-2 rounded-lg hover:bg-opacity-90"
+                                    @click="handleModalInfos"
+                                    ref="buyButton"
+                                    :data-id="pokemon.id"
+                                    :data-price="(pokemon.tcgplayer.prices[key].market * 0.00059).toFixed(6)"
+                                    >
+                                    <p class="pointer-events-none">{{ key.charAt(0).toUpperCase() + key.slice(1).toLowerCase() }}</p>
+                                    <p class="pointer-events-none">{{ (pokemon.tcgplayer.prices[key].market * 0.00059).toFixed(6) }} ETH</p>                                    
+                                </button>
+                            </template>
+                        </template>
+                        <template v-else>
+                            <p>No offers</p>
+                        </template>
                     </div>
                 </div>
                 <div class="absolute w-[240%] h-[240%] top-0 left-0 rotate-45"
@@ -27,13 +43,18 @@
             <p class="text-3xl text-MainBlue font-bold">No more cards matches your filter</p>
         </div>
     </template>
+    <MainModal ref="target" :is-modal-open="openModal" :pokemon-id="pokemonId" :pokemon-card-price="pokemonCardPrice" />
 </template>
 
 <script setup>
 import axios from "axios";
 import { useSearchFilters } from "../stores/SearchFilter";
+import { useConditionApi } from "../stores/ConditionApi"
+import { ref } from 'vue'
 import CardEffect from "./CardEffect.vue";
+import MainModal from "./common/MainModal.vue";
 
+const ConditionApi = useConditionApi()
 const searchFilters = useSearchFilters()
 
 const api = axios.create({
@@ -57,17 +78,15 @@ const props = defineProps({
     currentPage: { Type: Number, default: 1 }
 })
 
-const emit = defineEmits(['update:hasItens',])
-
 const getPokemons = async (page) => {
     try {
         const response = api.get(`/cards?orderBy=${searchFilters.order}&page=${page}`)
         const dataApi = (await response).data
         if (dataApi.data.length !== 0) {
-            emit('update:hasItens', true)
+            ConditionApi.hasItens = true
             return dataApi
-        } else{
-            emit('update:hasItens', false)
+        } else {
+            ConditionApi.hasItens = false
             return false
         }
     } catch (error) {
@@ -126,4 +145,22 @@ const defineBackGround = (pokemonType) => {
     return tempBg
 }
 
+
+const pokemonId = ref('')
+const pokemonCardPrice = ref('')
+const openModal = ref(false)
+const handleModalInfos = ()=>{
+    pokemonId.value = event.target.getAttribute('data-id')
+    pokemonCardPrice.value = event.target.getAttribute('data-price')
+    openModal.value = !openModal.value
+}
+
+import { onClickOutside } from '@vueuse/core'
+const target = ref(null)
+
+onClickOutside(target, () => {
+    if (openModal.value) {
+        openModal.value = false
+    }
+})
 </script>

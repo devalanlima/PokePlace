@@ -9,6 +9,6 @@ export const useSearchFilters = defineStore("filters", () => {
   const rarity = ref("*");
   const pokemonType = ref([]);
   const pageSize = ref(20);
-
-  return { order, name, subtype, supertype, rarity, pokemonType, pageSize };
+  const hasItens = ref(true)
+  return { order, name, subtype, supertype, rarity, pokemonType, pageSize, hasItens };
 });
