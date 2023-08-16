@@ -42,10 +42,10 @@
                                     <div class="w-[245px] h-[342px] bg-slate-500 animate-pulse block rounded-xl -z-10">
                                     </div>
                                     <div class="w-full h-[1px] bg-SecondaryBlue block"></div>
-                                    <div class="flex justify-between text-SecondaryBlue font-semibold">
-                                        <p>0.000000 ETH</p>
-                                        <p>000 of 000</p>
-                                    </div>
+                                    <button class="flex justify-between text-SecondaryBlue text-sm bg-white bg-opacity-50 p-2 rounded-lg hover:bg-opacity-90 font-semibold">
+                                        <p class="pointer-events-none">Normal</p>
+                                        <p class="pointer-events-none">0.000000 ETH</p>
+                                    </button>
                                 </div>
                                 <div class="absolute w-[240%] h-[240%] top-0 left-0 rotate-45 bg-MainWhite"></div>
                             </div>
@@ -53,7 +53,8 @@
                     </template>
                 </Suspense>
             </div>
-            <MainButton class="self-center p-5" @click="loadMore" button-name="Load More" :disabled="!ConditionApi.hasItens" />
+            <MainButton class="self-center p-5" @click="loadMore" button-name="Load More"
+                :disabled="!ConditionApi.hasItens" />
         </div>
     </div>
 </template>
