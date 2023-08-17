@@ -11,7 +11,7 @@
                         </SelectInput>
                         <PokemonTypesOptions v-else-if="searchFilters.supertype === 'Pokémon'"
                             class="md:flex-row w-full max-w-max mr-5 h-fit py-2 px-1" />
-                        <SelectInput class="self-start mx-auto mr-0 mt-1 p-1" button-name="Filter & Sort By">
+                        <SelectInput class="self-start mx-auto mr-0 mt-1 p-1" button-name="Filter">
                             <nav>
                                 <ul>
                                     <li>
