@@ -1,6 +1,7 @@
 <template>
     <Teleport to="body">
         <div v-if="isModalOpen"
+            ref="target"
             class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-[#050505] p-5 rounded-2xl flex flex-col gap-4 justify-center max-h-screen overflow-y-auto">
             <div class="select-none min-h-[412px]">
                 <div v-if="cardIsLoading" class="w-[300px]">
@@ -81,4 +82,13 @@ const getPokemons = async () => {
 
 const cardIsLoading = ref(true)
 
+
+import { onClickOutside } from '@vueuse/core'
+const target = ref(null)
+
+onClickOutside(target, () => {
+    if (isModalOpen.value) {
+        isModalOpen.value = false
+    }
+})
 </script>

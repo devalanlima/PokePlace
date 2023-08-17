@@ -43,7 +43,7 @@
             <p class="text-3xl text-MainBlue font-bold">No more cards matches your filter</p>
         </div>
     </template>
-    <MainModal ref="target" :is-modal-open="openModal" :pokemon-id="pokemonId" :pokemon-card-price="pokemonCardPrice" />
+    <MainModal :is-modal-open="openModal" :pokemon-id="pokemonId" :pokemon-card-price="pokemonCardPrice" />
 </template>
 
 <script setup>
@@ -155,12 +155,4 @@ const handleModalInfos = ()=>{
     openModal.value = !openModal.value
 }
 
-import { onClickOutside } from '@vueuse/core'
-const target = ref(null)
-
-onClickOutside(target, () => {
-    if (openModal.value) {
-        openModal.value = false
-    }
-})
 </script>
