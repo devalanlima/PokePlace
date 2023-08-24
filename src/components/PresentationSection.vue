@@ -1,7 +1,7 @@
 <template>
     <section class="flex flex-col sm:flex-row gap-5 p-5 justify-between max-w-[1440px] mx-auto md:my-20">
         <div class="flex flex-col gap-5 max-w-[350px] mx-auto text-lg lg:max-w-[540px] lg:text-2xl lg:gap-10 xl:text-3xl xl:max-w-[664px]">
-            <h1 class="font-bold m-0 leading-tight">Buy, Sell an Trade hundreds NFT Pokémon Cards</h1>
+            <h1 class="font-bold m-0 leading-tight text-[210%]">Buy, Sell an Trade hundreds NFT Pokémon Cards</h1>
             <p class="text-justify text-[90%]">
                 A non-fungible token (NFT) is a unique digital identifier that cannot be copied, substituted, or subdivided,
                 that is recorded in a blockchain, and that is used to certify ownership and authenticity.
